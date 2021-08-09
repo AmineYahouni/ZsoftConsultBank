@@ -1,0 +1,48 @@
+version : "3"
+services:
+  bank-app:
+    build: ./
+    container_name: bank-app
+    environment:
+      DB_URL: ${MA_DB_URL}
+      DB_USERNAME: ${MA_DB_USERNAME}
+      DB_PASSWORD: ${MA_DB_PASSWORD}
+    ports:
+      - 80:8080
+    depends_on:
+      - bank-db
+    networks:
+      - bank-net
+
+
+  bank-db:
+    image: postgres:13.3-alpine
+    container_name: bank-db
+    environment:
+        POSTGRES_USER: bank
+        POSTGRES_PASSWORD: bank
+        POSTGRES_DB: bank
+    restart: always
+    command:
+        - "-c"
+        - "log_statement=all"
+    volumes:
+      - database-data:/var/lib/postgresql/data
+    networks:
+      - bank-net
+
+  bank-db-webadmin:
+    image: adminer
+    container_name: bank-db-webadmin
+    restart: always
+    ports:
+      - 28080:8080
+    networks:
+      - bank-net
+
+volumes:
+  database-data:
+  maven:
+
+networks:
+  bank-net:
