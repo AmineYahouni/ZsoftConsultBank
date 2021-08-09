@@ -37,10 +37,10 @@ public class ClientServiceImpl implements ClientService{
         account = accountDao.save(account);
         accounts.add(account);
         var client = new Client();
-        client.setEmail("h@h.com");
-        client.setBirthDate("02/02/2020");
-        client.setFirstName("Amine");
-        client.setLastName("Yahouni");
+        client.setEmail("billel.boudjit@zsoft-consulting.com");
+        client.setBirthDate("01/01/1900");
+        client.setFirstName("Bilel");
+        client.setLastName("Boudjit");
         client.setAccounts(accounts);
         client.setTransactions(new ArrayList<>());
         return  clientDao.save(client);

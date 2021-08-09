@@ -25,13 +25,5 @@ public class TransactionServiceImpl implements TransactionService {
         return transactionDao.save(transaction);
     }
 
-    @Override
-    public List<Transaction> findAll() {
-        return transactionDao.findAll();
-    }
 
-    @Override
-    public Transaction findById(Long id) {
-        return transactionDao.findById(id).orElseThrow();
-    }
 }
