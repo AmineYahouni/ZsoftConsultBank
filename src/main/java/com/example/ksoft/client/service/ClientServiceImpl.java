@@ -39,7 +39,7 @@ public class ClientServiceImpl implements ClientService{
         var client = new Client();
         client.setEmail("billel.boudjit@zsoft-consulting.com");
         client.setBirthDate("01/01/1900");
-        client.setFirstName("Bilel");
+        client.setFirstName("Billel");
         client.setLastName("Boudjit");
         client.setAccounts(accounts);
         client.setTransactions(new ArrayList<>());
